@@ -1,0 +1,9 @@
+.contentBox {
+    height: 70px;
+    width: 256;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

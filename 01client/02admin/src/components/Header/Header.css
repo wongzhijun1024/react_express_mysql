@@ -1,0 +1,26 @@
+.headBox {
+    height: 70px;
+    background-color: #2f333e;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titleBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.titleBox .title {
+    color: #ffffff;
+    font-size: 15px;
+
+}
+
+.titleBox .icon {
+    margin-left: 30px;
+    font-size: 20px;
+    color: #ffffff;
+}
