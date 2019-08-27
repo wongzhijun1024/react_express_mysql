@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { Row, Col, Input, Icon, Tooltip, Button, message } from "antd";
+import net from "../../utils/net";
 export default class LoginView extends React.Component {
   constructor() {
     super();
@@ -29,10 +30,15 @@ export default class LoginView extends React.Component {
       return;
     }
     //2，提交数据到后台服务器
+    net.post("checkUser", { name: userName, passwd: inputPasswd }, function(
+      data
+    ) {
+      console.log(data);
+    });
     //3，根据后台服务器返回的数据进行相关的操作
 
-    localStorage.setItem("user", "小明");
-    this.props.history.push({ pathname: "/", state: {} });
+    // localStorage.setItem("user", "小明");
+    // this.props.history.push({ pathname: "/", state: {} });
   }
 
   passwdChange(e) {
