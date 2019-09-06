@@ -1,11 +1,12 @@
-//1,引入express
-var express = require("express");
+//1,引入相关库
+let express = require("express");
+let mysql = require("mysql");
 //2，获得express对象
-var app = express();
+let app = express();
 //3,引入body-parser模块
-var bodyParser = require("body-parser");
+let bodyParser = require("body-parser");
 // 4，创建 application/x-www-form-urlencoded 编码解析
-var urlencodedParser = bodyParser.urlencoded({
+let urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
 //5,设置静态文件
@@ -26,32 +27,6 @@ let ip = "http://192.168.3.122:";
 let port = 8888;
 
 app.get("/course", function(req, res) {
-  let topics = [
-    {
-      id: 0,
-      title: "精品推荐"
-    },
-    {
-      id: 1,
-      title: "新手必看"
-    },
-    {
-      id: 2,
-      title: "C++课程"
-    },
-    {
-      id: 3,
-      title: "算法课程"
-    },
-    {
-      id: 4,
-      title: "数学课程"
-    },
-    {
-      id: 5,
-      title: "python"
-    }
-  ];
   let courses = [
     {
       id: 0,
@@ -87,7 +62,35 @@ app.get("/course", function(req, res) {
     }
   ];
 
-  res.json({ courses: courses, topics: topics });
+  //1，创建一个connection
+  let connection = mysql.createConnection({
+    host: "cdb-a9y1iffo.cd.tencentcdb.com", //主机 ip
+    user: "root", //MySQL认证用户名
+    password: "cdhq1234", //MySQL认证用户密码
+    port: "10055", //端口号
+    database: "it" //数据库里面的数据
+  });
+  //2,连接
+  connection.connect();
+
+  //3,编写sql语句
+  let sql = "select * from topics";
+  //4,进行插入操作
+  /**
+   *query，mysql语句执行的方法
+   * 1，userAddSql编写的sql语句
+   * 2，function (err, result)，回调函数，err当执行错误时，回传一个err值，当执行成功时，传回result
+   */
+  connection.query(sql, function(err, result) {
+    if (err) {
+      console.log("[INSERT ERROR] - ", err.message);
+      return;
+    }
+
+    res.json({ courses: courses, topics: result });
+  });
+  //5,连接结束
+  connection.end();
 });
 //4,进行监听
 app.listen(port, function() {

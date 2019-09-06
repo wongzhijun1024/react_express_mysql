@@ -3,7 +3,7 @@
   <scroll-view class='headerBox' scroll-x="true">
     <view class='headerItem' wx:for="{{topics}}" wx:key="index" wx:for-item="topic">
       <view class='headerItemView' bindtap='clickTopItem' data-yjs="{{index}}">
-        <view class='{{indexSelect==index?"titleSelect":"title"}}'>{{topic.title}}</view>
+        <view class='{{indexSelect==index?"titleSelect":"title"}}'>{{topic.name}}</view>
         <view class='line' wx:if="{{indexSelect==index}}"></view>
       </view>
     </view>
