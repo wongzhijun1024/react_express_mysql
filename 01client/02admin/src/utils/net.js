@@ -1,5 +1,6 @@
 import axios from "axios";
 import qs from "qs";
+import { Socket } from "net";
 const serverUrl = "http://localhost:8888/";
 
 let net = {
@@ -29,7 +30,9 @@ net.post = function(api, object, call) {
   axios
     .post(url, qs.stringify(object))
     .then(function(response) {
-      call(response);
+      if (response.status === 200) {
+        call(response.data);
+      }
     })
     .catch(function(error) {
       console.log(error);

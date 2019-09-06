@@ -16,9 +16,9 @@ export default class Index extends React.Component {
   render() {
     return (
       <Router history={history}>
-        <Route path="/" component={HomeView} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/register" component={RegisterView} />
+        <Route path="/home" component={HomeView} />
+        <Route exact path="/login" component={LoginView} />
+        <Route exact path="/register" component={RegisterView} />
       </Router>
     );
   }

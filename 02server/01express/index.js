@@ -12,7 +12,7 @@ var urlencodedParser = bodyParser.urlencoded({
 //3,设置跨域访问
 app.all("*", function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "http://192.168.3.122:3000");
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
@@ -21,17 +21,44 @@ app.all("*", function(req, res, next) {
   next();
 });
 
-app.post("/checkUser", urlencodedParser, function(req, res) {
-  var name = req.body.name;
-  var passwd = req.body.passwd;
+app.get("/course", function(req, res) {
+  let courses = [
+    {
+      id: 0,
+      url: "",
+      title: "真题课程包1",
+      content: "提分神器，上岸必刷",
+      price: "798",
+      number: "2.3"
+    },
+    {
+      id: 1,
+      url: "",
+      title: "真题课程包2",
+      content: "提分神器，上岸必刷",
+      price: "798",
+      number: "2.3"
+    },
+    {
+      id: 2,
+      url: "",
+      title: "真题课程包3",
+      content: "提分神器，上岸必刷",
+      price: "798",
+      number: "2.3"
+    },
+    {
+      id: 3,
+      url: "",
+      title: "真题课程包4",
+      content: "提分神器，上岸必刷",
+      price: "798",
+      number: "2.3"
+    }
+  ];
 
-  let ob = {
-    meg: "用户非法",
-    code: -1
-  };
-  res.json(ob);
+  res.json(courses);
 });
-
 //4,进行监听
 app.listen(8888, function() {
   console.log("启动");

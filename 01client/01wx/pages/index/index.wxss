@@ -1,0 +1,113 @@
+.headerBox {
+  width: 700rpx;
+  white-space: nowrap;
+}
+
+.headerItem {
+  display: inline-block;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.headerItemView {
+  display: flex;
+  flex-direction: column;
+  height: 80rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: #555;
+  font-size: 33rpx;
+}
+
+.titleSelect {
+  color: #111;
+  font-size: 36rpx;
+}
+
+.line {
+  width: 50%;
+  height: 10rpx;
+  background: #2066ff;
+  border-radius: 5rpx;
+}
+
+.divider {
+  width: 750rpx;
+  height: 4rpx;
+  background: #eef0f5;
+}
+
+.examinationView {
+  width: 700rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.examinationView .title {
+  margin-top: 40rpx;
+  color: #111;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.examinationView .item {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.examinationView .item .icon {
+  width: 300rpx;
+  height: 240rpx;
+  border-radius: 10rpx;
+}
+
+.inforBox{
+  padding-left: 20rpx;
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.inforBox .inforTitle{
+  color: #111;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.inforBox .content{
+  color: #a0a0a0;
+  margin-top: 5rpx;
+  font-size: 32rpx;
+}
+
+.buyBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buyBox .price{
+  color: #ff7043;
+}
+
+
+.buyBox .number{
+ color: #999999;
+ font-size: 32rpx;
+}
+
+
+.body{
+  width: 750rpx;
+}
+
+.scrollItem{
+  width: 100%;
+  display: inline-block;
+}

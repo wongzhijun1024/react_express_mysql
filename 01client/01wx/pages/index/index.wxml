@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view class='headerBox' scroll-x="true">
+    <view class='headerItem' wx:for="{{topics}}" wx:key="index" wx:for-item="topic">
+      <view class='headerItemView' bindtap='clickTopItem' data-yjs="{{index}}">
+        <view class='{{indexSelect==index?"titleSelect":"title"}}'>{{topic.title}}</view>
+        <view class='line' wx:if="{{indexSelect==index}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='divider'></view>
+  <scroll-view class='body' style='height:{{height}}rpx; ' scroll-y="true">
+
+
+    <view class='scrollItem' wx:for="{{courses}}" wx:key="index" wx:for-item="course">
+      <view class='examinationView'>
+        <view class='title'>{{course.title}}</view>
+        <view class='item' bindtap='toExaminationInfor'>
+          <image class='icon' src='../../imgs/examinationIcon.jpg'></image>
+          <view class='inforBox'>
+            <view>
+              <view class='inforTitle'>
+                {{course.title}}
+              </view>
+              <view class='content'>
+                {{course.content}}
+              </view>
+            </view>
+            <view class='buyBox'>
+              <view class='price'>
+                ￥{{course.price}}
+              </view>
+              <view class='number'>
+                {{course.number}}万人购买
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </scroll-view>
+
+
+
+
+
+
+
+
+</view>
