@@ -8,8 +8,9 @@ var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
-
-//3,设置跨域访问
+//5,设置静态文件
+app.use(express.static("public"));
+//6,设置跨域访问
 app.all("*", function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Origin", "http://192.168.3.122:3000");
@@ -20,12 +21,41 @@ app.all("*", function(req, res, next) {
   res.header("Content-Type", "application/json;charset=utf-8");
   next();
 });
+//设置固定值
+let ip = "http://192.168.3.122:";
+let port = 8888;
 
 app.get("/course", function(req, res) {
+  let topics = [
+    {
+      id: 0,
+      title: "精品推荐"
+    },
+    {
+      id: 1,
+      title: "新手必看"
+    },
+    {
+      id: 2,
+      title: "C++课程"
+    },
+    {
+      id: 3,
+      title: "算法课程"
+    },
+    {
+      id: 4,
+      title: "数学课程"
+    },
+    {
+      id: 5,
+      title: "python"
+    }
+  ];
   let courses = [
     {
       id: 0,
-      url: "",
+      url: ip + port + "/imgs/examinationIcon.jpg",
       title: "真题课程包1",
       content: "提分神器，上岸必刷",
       price: "798",
@@ -33,7 +63,7 @@ app.get("/course", function(req, res) {
     },
     {
       id: 1,
-      url: "",
+      url: ip + port + "/imgs/examinationIcon.jpg",
       title: "真题课程包2",
       content: "提分神器，上岸必刷",
       price: "798",
@@ -41,7 +71,7 @@ app.get("/course", function(req, res) {
     },
     {
       id: 2,
-      url: "",
+      url: ip + port + "/imgs/examinationIcon.jpg",
       title: "真题课程包3",
       content: "提分神器，上岸必刷",
       price: "798",
@@ -49,7 +79,7 @@ app.get("/course", function(req, res) {
     },
     {
       id: 3,
-      url: "",
+      url: ip + port + "/imgs/examinationIcon.jpg",
       title: "真题课程包4",
       content: "提分神器，上岸必刷",
       price: "798",
@@ -57,9 +87,9 @@ app.get("/course", function(req, res) {
     }
   ];
 
-  res.json(courses);
+  res.json({ courses: courses, topics: topics });
 });
 //4,进行监听
-app.listen(8888, function() {
+app.listen(port, function() {
   console.log("启动");
 });

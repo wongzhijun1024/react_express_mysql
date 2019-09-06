@@ -16,7 +16,7 @@
       <view class='examinationView'>
         <view class='title'>{{course.title}}</view>
         <view class='item' bindtap='toExaminationInfor'>
-          <image class='icon' src='../../imgs/examinationIcon.jpg'></image>
+          <image class='icon' src='{{course.url}}'></image>
           <view class='inforBox'>
             <view>
               <view class='inforTitle'>

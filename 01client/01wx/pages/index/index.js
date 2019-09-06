@@ -6,25 +6,7 @@ Page({
   data: {
     height: '500',
     indexSelect: 0,
-    topics: [{
-      id: 0,
-      title: "精品推荐"
-    }, {
-      id: 1,
-      title: "新手必看"
-    }, {
-      id: 2,
-      title: "C++课程"
-    }, {
-      id: 3,
-      title: "算法课程"
-    }, {
-      id: 4,
-      title: "数学课程"
-    }, {
-      id: 5,
-      title: "python"
-    }],
+    topics:[],
     courses: []
   },
   onLoad: function () {
@@ -34,8 +16,10 @@ Page({
       url: 'http://localhost:8888/course',
       success:function(res){
         if (res.statusCode==200){
-          let courses = res.data;
-          that.setData({ courses: courses});
+          console.log(res.data);
+          let courses = res.data.courses;
+          let topics = res.data.topics;
+          that.setData({ courses: courses, topics: topics});
         }
       }
     })
