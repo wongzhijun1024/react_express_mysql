@@ -13,7 +13,7 @@ Page({
     let that = this;
     //获得后台服务的数据
     wx.request({
-      url: 'http://localhost:8888/course',
+      url: 'http://localhost:8888/index',
       success:function(res){
         if (res.statusCode==200){
           console.log(res.data);
@@ -23,15 +23,12 @@ Page({
         }
       }
     })
-    wx.getSystemInfo({
-      success: function (res) {
-        //计算屏幕的高度
-        let buffer = (750 / res.windowWidth) * res.windowHeight - 80;
-        that.setData({
-          height: buffer
-        });
-      },
-    })
+    //获得屏幕的高度
+    let height =app.globalData.windowHeight;
+    this.setData({
+      height: height-90
+    });
+  
   },
   clickTopItem: function (res) {
     //获得传递过来的数据

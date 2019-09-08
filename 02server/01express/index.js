@@ -25,21 +25,9 @@ app.all("*", function(req, res, next) {
 //设置固定值
 let ip = "http://192.168.3.122:";
 let port = 8888;
-//引入模块
-let CourseModel = require("./model/CourseModel");
-let TopicModel = require("./model/TopicModel");
-app.get("/course", function(req, res) {
-  //创建对象
-  let courseModel = new CourseModel();
-  //获得数据
-  courseModel.getAllCourse(function(courses) {
-    //创建对象
-    let topicModel = new TopicModel();
-    topicModel.getAllTopic(function(result) {
-      res.json({ courses: courses, topics: result });
-    });
-  });
-});
+
+let indexController = require("./controllers/IndexController");
+app.get("/index", indexController.index);
 //4,进行监听
 app.listen(port, function() {
   console.log("启动");
