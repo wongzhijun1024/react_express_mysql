@@ -1,45 +1,24 @@
 <!--index.wxml-->
 <view class="container">
   <scroll-view class='headerBox' scroll-x="true">
-    <view class='headerItem' wx:for="{{topics}}" wx:key="index" wx:for-item="topic">
+    <view class='headerItem' wx:for="{{courses}}" wx:key="index" wx:for-item="course">
       <view class='headerItemView' bindtap='clickTopItem' data-yjs="{{index}}">
-        <view class='{{indexSelect==index?"titleSelect":"title"}}'>{{topic.name}}</view>
-        <view class='line' wx:if="{{indexSelect==index}}"></view>
+        <view class='{{coursesIndex==index?"titleSelect":"title"}}'>{{course.name}}</view>
+        <view class='line' wx:if="{{coursesIndex==index}}"></view>
       </view>
     </view>
   </scroll-view>
   <view class='divider'></view>
   <scroll-view class='body' style='height:{{height}}rpx; ' scroll-y="true">
-
-
-    <view class='scrollItem' wx:for="{{courses}}" wx:key="index" wx:for-item="course">
+    <view class='scrollItem' wx:for="{{courses[coursesIndex].chapters}}" wx:key="index" wx:for-item="chapter">
       <view class='examinationView'>
-        <view class='title'>{{course.title}}</view>
-        <view class='item' bindtap='toExaminationInfor'>
-          <image class='icon' src='{{course.url}}'></image>
-          <view class='inforBox'>
-            <view>
-              <view class='inforTitle'>
-                {{course.title}}
-              </view>
-              <view class='content'>
-                {{course.content}}
-              </view>
-            </view>
-            <view class='buyBox'>
-              <view class='price'>
-                ￥{{course.price}}
-              </view>
-              <view class='number'>
-                {{course.number}}万人购买
-              </view>
-            </view>
-          </view>
-        </view>
+
+        <image class='icon' src="../../imgs/index.png"></image>
+         <view >第{{chapter.id}}章:</view>
+        <view class='title'>{{chapter.title}}</view>
+     
       </view>
     </view>
-
-
   </scroll-view>
 
 

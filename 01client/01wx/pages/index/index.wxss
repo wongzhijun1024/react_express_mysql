@@ -42,64 +42,24 @@
 
 .examinationView {
   width: 700rpx;
+  height: 150rpx;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #333333;
 }
 
 .examinationView .title {
-  margin-top: 40rpx;
   color: #111;
   font-size: 40rpx;
   font-weight: bold;
 }
 
-.examinationView .item {
-  margin-top: 40rpx;
-  display: flex;
-  flex-direction: row;
-}
-
-.examinationView .item .icon {
-  width: 300rpx;
-  height: 240rpx;
-  border-radius: 10rpx;
-}
-
-.inforBox{
-  padding-left: 20rpx;
-  width: 400rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-}
-
-.inforBox .inforTitle{
-  color: #111;
-  font-size: 36rpx;
-  font-weight: bold;
-}
-
-.inforBox .content{
-  color: #a0a0a0;
-  margin-top: 5rpx;
-  font-size: 32rpx;
-}
-
-.buyBox{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.buyBox .price{
-  color: #ff7043;
-}
 
 
-.buyBox .number{
- color: #999999;
- font-size: 32rpx;
+.examinationView  .icon {
+  width: 60rpx;
+  height: 60rpx;
 }
 
 
@@ -110,4 +70,5 @@
 .scrollItem{
   width: 100%;
   display: inline-block;
+  padding-top: 40rpx;
 }

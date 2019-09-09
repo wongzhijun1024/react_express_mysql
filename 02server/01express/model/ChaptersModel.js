@@ -1,12 +1,12 @@
 //引入模块
 let SqlBase = require("./SqlBase");
-class TopicModel extends SqlBase {
+class ChaptersModel extends SqlBase {
   constructor() {
     super();
   }
-  getAllTopic(callback) {
+  getChaptersById(courses_id, callback) {
     //3,编写sql语句
-    let sql = "select * from topics";
+    let sql = `select * from chapters where courses_id=${courses_id}`;
     //4,进行插入操作
     /**
      *query，mysql语句执行的方法
@@ -15,7 +15,7 @@ class TopicModel extends SqlBase {
      */
     this.connection.query(sql, function(err, result) {
       if (err) {
-        console.log("[INSERT ERROR] - ", err.message);
+        console.log("[查询] - ", err.message);
         return;
       }
       callback(result);
@@ -23,4 +23,4 @@ class TopicModel extends SqlBase {
   }
 }
 
-module.exports = TopicModel;
+module.exports = ChaptersModel;

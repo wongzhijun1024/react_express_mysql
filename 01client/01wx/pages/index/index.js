@@ -5,8 +5,7 @@ const app = getApp()
 Page({
   data: {
     height: '500',
-    indexSelect: 0,
-    topics:[],
+    coursesIndex: 0,
     courses: []
   },
   onLoad: function () {
@@ -17,9 +16,11 @@ Page({
       success:function(res){
         if (res.statusCode==200){
           console.log(res.data);
-          let courses = res.data.courses;
-          let topics = res.data.topics;
-          that.setData({ courses: courses, topics: topics});
+          let courses = res.data;
+           that.setData({
+             courses: courses
+           });
+       
         }
       }
     })
@@ -35,7 +36,7 @@ Page({
     let id = res.currentTarget.dataset.yjs;
     //把index换成id
     this.setData({
-      indexSelect: id
+      coursesIndex: id
     });
   },
   toExaminationInfor: function () {
