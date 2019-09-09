@@ -28,6 +28,9 @@ let port = 8888;
 
 let indexController = require("./controllers/IndexController");
 app.get("/index", indexController.index);
+
+let playController = require("./controllers/PlayController");
+app.get("/comment", playController.comment);
 //4,进行监听
 app.listen(port, function() {
   console.log("启动");

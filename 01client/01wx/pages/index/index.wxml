@@ -11,12 +11,10 @@
   <view class='divider'></view>
   <scroll-view class='body' style='height:{{height}}rpx; ' scroll-y="true">
     <view class='scrollItem' wx:for="{{courses[coursesIndex].chapters}}" wx:key="index" wx:for-item="chapter">
-      <view class='examinationView'>
-
+      <view class='examinationView' bindtap='turnToPlay' data-coursesIndex="{{courses[coursesIndex].id}}" data-chapterIndex="{{index}}">
         <image class='icon' src="../../imgs/index.png"></image>
-         <view >第{{chapter.id}}章:</view>
+         <view >第{{index+1}}章:</view>
         <view class='title'>{{chapter.title}}</view>
-     
       </view>
     </view>
   </scroll-view>

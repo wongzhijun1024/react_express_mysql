@@ -15,11 +15,13 @@ Page({
       url: 'http://localhost:8888/index',
       success:function(res){
         if (res.statusCode==200){
-          console.log(res.data);
           let courses = res.data;
            that.setData({
              courses: courses
            });
+
+           //把当前的课程保存为全局变量
+          app.globalData.courses = courses;
        
         }
       }
@@ -43,5 +45,14 @@ Page({
     wx.navigateTo({
       url: '../examinationInfor/examinationInfor',
     })
+  }
+  , turnToPlay:function(event){
+    //课程的下标
+    let coursesIndex = event.currentTarget.dataset.coursesindex;
+    //第几个章节 
+    let chapterIndex = event.currentTarget.dataset.chapterindex;
+    wx.navigateTo({
+      url: '../play/play?coursesIndex=' + coursesIndex + "&&chapterIndex=" + chapterIndex,
+    }) 
   }
 })
