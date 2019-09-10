@@ -1,9 +1,9 @@
 {
   "pages": [
+        "pages/write/write",
     "pages/index/index",
     "pages/play/play",
      "pages/examinationInfor/examinationInfor",
-    "pages/write/write",
     "pages/find/find",
     "pages/user/user",
     "pages/logs/logs"
